@@ -28,9 +28,17 @@ class App extends React.Component {
       search: data.value
     });
   }
+
   //helpers
 
-  filterByName() {}
+  filterCharacters() {
+    return this.state.characters.filter(character => {
+      return character.name
+        .toLowerCase()
+        .includes(this.state.search.toLowerCase());
+    });
+  }
+
   // render
   renderCharacterDetail(props) {
     console.log(props.match.params.id);
@@ -55,7 +63,7 @@ class App extends React.Component {
         <Filters handleSearch={this.handleSearch} />
         <Switch>
           <Route exact path="/">
-            <CharacterList characters={this.state.characters} />
+            <CharacterList characters={this.filterCharacters()} />
           </Route>
           <Route
             path="/character/:id"
