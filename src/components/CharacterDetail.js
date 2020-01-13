@@ -14,11 +14,15 @@ function CharacterDetail(props) {
       <div className="card">
         <img className="card__img" src={image} />
         <h3 className="card__title">{name}</h3>
-        <p className="card__description">{species}</p>
+        <p className="card__description">Status: {status}</p>
+        <p className="card__description">Species: {species}</p>
 
-        <p className="card__description">{props.character.location.name}</p>
-        <p className="card__description">{props.character.episode.length}</p>
-        <p className="card__description">{status}</p>
+        <p className="card__description">
+          Origin: {props.character.location.name}
+        </p>
+        <p className="card__description">
+          Episodes: {props.character.episode.length}
+        </p>
       </div>
     </>
   );
