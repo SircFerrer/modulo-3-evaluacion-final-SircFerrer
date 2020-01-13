@@ -11,15 +11,27 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      characters: []
+      characters: [],
+      search: ""
     };
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   componentDidMount() {
     apiCharacters().then(characters => this.setState({ characters }));
   }
 
+  //events
+  handleSearch(data) {
+    this.setState({
+      search: data.value
+    });
+  }
+  //helpers
+
+  filterByName() {}
+  // render
   renderCharacterDetail(props) {
     console.log(props.match.params.id);
     const routeId = parseInt(props.match.params.id);
@@ -40,7 +52,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <Filters />
+        <Filters handleSearch={this.handleSearch} />
         <Switch>
           <Route exact path="/">
             <CharacterList characters={this.state.characters} />
