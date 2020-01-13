@@ -1,15 +1,19 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
+
 function CharacterCard(props) {
-  console.log(props);
-  const {image, name, species}=props.character
-  
-    return (
-      <div className="card">
-        <img className="card__img" src={image}/>
-        <h3>{name}</h3>
-        <p>{species}</p>
-      </div>
-    );
-  }
-  
-  export default CharacterCard;
+  const { image, name, species, id } = props.character;
+  const routeID = `/character/${id}`;
+
+  return (
+    <div className="card">
+      <Link to={routeID}>
+        <img className="card__img" src={image} />
+        <h3 className="card__title">{name}</h3>
+        <p className="card__description">{species}</p>
+      </Link>
+    </div>
+  );
+}
+
+export default CharacterCard;

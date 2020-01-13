@@ -1,8 +1,10 @@
 import React from 'react';
+import logo from "../images/logoRM.png"
 function Header() {
     return (
       <div>
-      <h1  className="title">Ricky y Morty</h1>
+        <img src ={logo}/>
+      
       </div>
     );
   }
