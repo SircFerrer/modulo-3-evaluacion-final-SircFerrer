@@ -3,6 +3,7 @@ import Header from "./Header"
 import apiCharacters from "../api/characters"
 import '../stylesheets/App.css';
 import Filters from './Filters';
+import CharacterList from './CharacterList';
 
 
 class App extends React.Component {
@@ -26,6 +27,7 @@ class App extends React.Component {
       <div>
     <Header/>
     <Filters/>
+    <CharacterList characters={this.state.characters}/>
     
       </div>
     );

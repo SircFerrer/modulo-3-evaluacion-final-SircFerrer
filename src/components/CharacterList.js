@@ -1,9 +1,20 @@
 import React from 'react';
-function CharacterList() {
+import CharacterCard from "./CharacterCard"
+
+
+function CharacterList(props) {
+  
+  
     return (
-      <div>
-      hola
-      </div>
+      <ul className="cards">
+      {props.characters.map(character => {
+        return (
+          <li className="cards" key={character.id}>
+            <CharacterCard character={character} />
+          </li>
+        );
+      })}
+    </ul>
     );
   }
   
