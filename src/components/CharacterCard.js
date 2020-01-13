@@ -8,7 +8,7 @@ function CharacterCard(props) {
   return (
     <div className="card">
       <Link to={routeID}>
-        <img className="card__img" src={image} />
+        <img className="card__img" src={image} alt={name} />
         <h3 className="card__title">{name}</h3>
         <p className="card__description">{species}</p>
       </Link>

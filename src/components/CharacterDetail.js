@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 function CharacterDetail(props) {
-  console.log(props);
   const { image, name, species, status } = props.character;
+  console.log(status);
 
   return (
     <>
@@ -12,13 +12,19 @@ function CharacterDetail(props) {
         </Link>
       </div>
       <div className="card">
-        <img className="card__img" src={image} />
+        <img className="card__img" src={image} alt={name} />
         <h3 className="card__title">{name}</h3>
         <p className="card__description">{species}</p>
 
         <p className="card__description">{props.character.location.name}</p>
         <p className="card__description">{props.character.episode.length}</p>
-        <p className="card__description">{status}</p>
+        <div>
+          {status === "Alive" ? (
+            <p>{status}</p>
+          ) : (
+            <i className="fas fa-skull-crossbones"></i>
+          )}
+        </div>
       </div>
     </>
   );
