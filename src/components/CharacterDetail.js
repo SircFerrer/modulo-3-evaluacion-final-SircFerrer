@@ -17,7 +17,7 @@ function CharacterDetail(props) {
 
         <p className="cardDetail__description">Planet: {location.name}</p>
         <p className="cardDetail__description"> Episodes: {episode.length}</p>
-        <div>
+        <div className="icon">
           {status === "Alive" ? (
             <p className="cardDetail__description">Status: {status}</p>
           ) : (
