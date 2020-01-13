@@ -1,0 +1,18 @@
+.card {
+  &__img {
+    width: 280px;
+  }
+  &__title {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+  }
+  &__description {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+  }
+}
+.link {
+  text-decoration: none;
+}

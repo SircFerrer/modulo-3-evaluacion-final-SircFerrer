@@ -1,0 +1,12 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  text-decoration: none;
+
+  &__cardContainer {
+    display: flex;
+    margin: 10px 10px 10px 10px;
+    width: 280px;
+    background-color: aqua;
+  }
+}

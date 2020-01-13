@@ -2,10 +2,10 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Header from "./Header";
 import apiCharacters from "../api/characters";
-import "../stylesheets/App.css";
 import Filters from "./Filters";
 import CharacterList from "./CharacterList";
 import CharacterDetail from "./CharacterDetail";
+import "../sylesheets/app.scss";
 
 class App extends React.Component {
   constructor(props) {
@@ -56,11 +56,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <Header />
-        <Filters handleSearch={this.handleSearch} />
         <Switch>
           <Route exact path="/">
+            <Filters handleSearch={this.handleSearch} />
             <CharacterList characters={this.filterCharacters()} />
           </Route>
           <Route

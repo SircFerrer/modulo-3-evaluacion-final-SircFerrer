@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../sylesheets/characterCard.scss";
 
 function CharacterCard(props) {
   const { image, name, species, id } = props.character;
@@ -7,7 +8,7 @@ function CharacterCard(props) {
 
   return (
     <div className="card">
-      <Link to={routeID}>
+      <Link className="link" to={routeID}>
         <img className="card__img" src={image} alt={name} />
         <h3 className="card__title">{name}</h3>
         <p className="card__description">{species}</p>
