@@ -12,7 +12,7 @@ function CharacterDetail(props) {
   } else if (status === "Dead") {
     statusCharacter = (<i className="fas fa-skull-crossbones death"></i>)
   } else {
-    statusCharacter = (<i class="fas fa-question question"></i>)
+    statusCharacter = (<i className="fas fa-question question"></i>)
   }
 
 

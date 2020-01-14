@@ -12,10 +12,14 @@ class App extends React.Component {
     super(props);
     this.state = {
       characters: [],
-      search: ""
+      search: "",
+      status: "",
+
     };
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
+
   }
 
   componentDidMount() {
@@ -28,20 +32,33 @@ class App extends React.Component {
       search: data.value
     });
   }
+  handleCheck(data) {
+    this.setState({
+      status: data.value
+    })
+  }
 
   //helpers
 
   filterCharacters() {
-    return this.state.characters.filter(character => {
-      return character.name
-        .toLowerCase()
-        .includes(this.state.search.toLowerCase());
-    });
+    return this.state.characters
+
+      .filter(character => {
+        return character.name
+          .toLowerCase()
+          .includes(this.state.search.toLowerCase());
+      })
+      .filter(character => {
+        return character.status
+          .includes(this.state.status)
+      });
+
   }
+
 
   // render
   renderCharacterDetail(props) {
-    console.log(props.match.params.id);
+
     const routeId = parseInt(props.match.params.id);
 
     const character = this.state.characters.find(item => {
@@ -55,6 +72,8 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state);
+
     return (
       <div className="container">
         <Header />
@@ -63,6 +82,8 @@ class App extends React.Component {
             <Filters
               handleSearch={this.handleSearch}
               search={this.state.search}
+              handleCheck={this.handleCheck}
+              status={this.state.status}
             />
             <CharacterList characters={this.filterCharacters()} />
           </Route>
