@@ -13,7 +13,8 @@ class App extends React.Component {
     this.state = {
       characters: [],
       search: "",
-      check: true
+      status: "",
+
     };
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -31,21 +32,29 @@ class App extends React.Component {
       search: data.value
     });
   }
-  handleCheck(check) {
+  handleCheck(data) {
     this.setState({
-      check: check.value
+      status: data.value
     })
   }
 
   //helpers
 
   filterCharacters() {
-    return this.state.characters.filter(character => {
-      return character.name
-        .toLowerCase()
-        .includes(this.state.search.toLowerCase());
-    });
+    return this.state.characters
+
+      .filter(character => {
+        return character.name
+          .toLowerCase()
+          .includes(this.state.search.toLowerCase());
+      })
+      .filter(character => {
+        return character.status
+          .includes(this.state.status)
+      });
+
   }
+
 
   // render
   renderCharacterDetail(props) {
@@ -74,6 +83,7 @@ class App extends React.Component {
               handleSearch={this.handleSearch}
               search={this.state.search}
               handleCheck={this.handleCheck}
+              status={this.state.status}
             />
             <CharacterList characters={this.filterCharacters()} />
           </Route>

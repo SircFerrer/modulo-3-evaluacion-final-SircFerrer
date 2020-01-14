@@ -5,7 +5,7 @@ function Filters(props) {
     props.handleSearch({ value: ev.target.value });
   };
   const handleCheck = ev => {
-    props.handleCheck({ check: ev.target.value });
+    props.handleCheck({ value: ev.target.value });
 
   };
   return (
@@ -21,9 +21,9 @@ function Filters(props) {
         />
         <div className="checkbox">
 
-          <input type="checkbox" checked={true} onChange={handleCheck} name="heart" /> <i className="fas fa-heart heart"></i>
-          <input type="checkbox" checked={true} onChange={handleCheck} name="death" /> <i className="fas fa-skull-crossbones death2"></i>
-          <input type="checkbox" checked={true} onChange={handleCheck} name="question" /> <i className="fas fa-question question2"></i>
+          <input type="radio" onChange={handleCheck} name="status" value="Alive" checked={props.status === "Alive"} /> <i className="fas fa-heart heart" ></i>
+          <input type="radio" onChange={handleCheck} name="status" value="Dead" checked={props.status === "Dead"} /> <i className="fas fa-skull-crossbones death2"></i>
+          <input type="radio" onChange={handleCheck} name="status" value="unknown" checked={props.status === "unknown"} /> <i className="fas fa-question question2"></i>
 
         </div>
 
