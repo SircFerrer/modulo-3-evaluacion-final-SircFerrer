@@ -12,10 +12,13 @@ class App extends React.Component {
     super(props);
     this.state = {
       characters: [],
-      search: ""
+      search: "",
+      check: true
     };
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
+
   }
 
   componentDidMount() {
@@ -27,6 +30,11 @@ class App extends React.Component {
     this.setState({
       search: data.value
     });
+  }
+  handleCheck(check) {
+    this.setState({
+      check: check.value
+    })
   }
 
   //helpers
@@ -41,7 +49,7 @@ class App extends React.Component {
 
   // render
   renderCharacterDetail(props) {
-    console.log(props.match.params.id);
+
     const routeId = parseInt(props.match.params.id);
 
     const character = this.state.characters.find(item => {
@@ -55,6 +63,8 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state);
+
     return (
       <div className="container">
         <Header />
@@ -63,6 +73,7 @@ class App extends React.Component {
             <Filters
               handleSearch={this.handleSearch}
               search={this.state.search}
+              handleCheck={this.handleCheck}
             />
             <CharacterList characters={this.filterCharacters()} />
           </Route>

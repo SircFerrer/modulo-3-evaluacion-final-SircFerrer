@@ -16,10 +16,10 @@ function CharacterCard(props) {
           {species === "Alien" ? (
             <i className="fab fa-reddit-alien alien"></i>
           ) : (
-            <i className="fas fa-user-alt human"></i>
-          )}
+              <i className="fas fa-user-alt human"></i>
+            )}
         </p>
-        <i class="fas fa-info-circle info"></i>
+        <i className="fas fa-info-circle info"></i>
       </Link>
     </div>
   );
