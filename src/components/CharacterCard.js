@@ -11,7 +11,15 @@ function CharacterCard(props) {
       <Link className="link" to={routeID}>
         <img className="card__img" src={image} alt={name} />
         <h3 className="card__title">{name}</h3>
-        <p className="card__description">{species}</p>
+
+        <p className="card__description">
+          {species === "Alien" ? (
+            <i className="fab fa-reddit-alien alien"></i>
+          ) : (
+            <i className="fas fa-user-alt human"></i>
+          )}
+        </p>
+        <i class="fas fa-info-circle info"></i>
       </Link>
     </div>
   );

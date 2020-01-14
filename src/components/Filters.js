@@ -12,6 +12,7 @@ function Filters(props) {
         type="text"
         className="searchInput"
         placeholder="Búsqueda por personaje"
+        value={props.search}
       />
     </div>
   );

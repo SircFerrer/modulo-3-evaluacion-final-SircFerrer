@@ -60,7 +60,10 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route exact path="/">
-            <Filters handleSearch={this.handleSearch} />
+            <Filters
+              handleSearch={this.handleSearch}
+              search={this.state.search}
+            />
             <CharacterList characters={this.filterCharacters()} />
           </Route>
           <Route
