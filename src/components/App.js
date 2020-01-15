@@ -14,11 +14,13 @@ class App extends React.Component {
       characters: [],
       search: "",
       status: "",
+      species: "All"
 
     };
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
 
   }
 
@@ -37,6 +39,11 @@ class App extends React.Component {
       status: data.value
     })
   }
+  handleSelect(data) {
+    this.setState({
+      species: data.value
+    })
+  }
 
   //helpers
 
@@ -51,6 +58,9 @@ class App extends React.Component {
       .filter(character => {
         return character.status
           .includes(this.state.status)
+      })
+      .filter(character => {
+        return character.species.includes(this.state.species) || "All" === this.state.species
       });
 
   }
@@ -84,6 +94,8 @@ class App extends React.Component {
               search={this.state.search}
               handleCheck={this.handleCheck}
               status={this.state.status}
+              handleSelect={this.handleSelect}
+              species={this.state.species}
             />
             <CharacterList characters={this.filterCharacters()} />
           </Route>

@@ -1,6 +1,8 @@
 import React from "react";
 import "../sylesheets/filters.scss";
 function Filters(props) {
+
+
   const handleSearch = ev => {
     props.handleSearch({ value: ev.target.value });
   };
@@ -8,6 +10,12 @@ function Filters(props) {
     props.handleCheck({ value: ev.target.value });
 
   };
+  const handleSelect = ev => {
+    props.handleSelect({ value: ev.target.value })
+  }
+
+
+
   return (
     <>
       <div className="filters">
@@ -26,6 +34,12 @@ function Filters(props) {
           <input type="radio" onChange={handleCheck} name="status" value="unknown" checked={props.status === "unknown"} /> <i className="fas fa-question question2"></i>
 
         </div>
+        <select onChange={handleSelect} name="species" value={props.species}>
+
+          <option onChange={handleSelect} value="All">Todos</option>
+          <option value="Human">Human</option>
+          <option value="Alien">Alien</option>
+        </select>
 
       </div>
     </>
